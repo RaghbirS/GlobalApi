@@ -12,25 +12,25 @@ async function get(){
     let data = await axios.get("http://localhost:3001/AllRows");
     console.log(data.data);
 }
-async function getByQuery(){
-    let data = await axios.get("http://localhost:3001/AllRows?test4=false");
+async function getByQuery(query){
+    let data = await axios.get(`http://localhost:3001/AllRows?${query}`);
     console.log(data.data);
 }
-async function getByID(){
-    let data = await axios.get("http://localhost:3001/AllRows/64268fe4f3e8a5eef0e08db1");
+async function getByID(id){
+    let data = await axios.get(`http://localhost:3001/AllRows/${id}`);
     console.log(data.data);
 }
-async function patch(){
-    let data = await axios.patch("http://localhost:3001/AllRows/64268fe4f3e8a5eef0e08db1",{
+async function patch(id){
+    let data = await axios.patch(`http://localhost:3001/AllRows/${id}`,{
         test1:"patching",
     })
 }
-async function deleteData(){
-    let data = await axios.delete("http://localhost:3001/AllRows/6426abe4ac9605fa351c9276")
+async function deleteData(id){
+    let data = await axios.delete(`http://localhost:3001/AllRows/${id}`)
 }
 // get()
-// getByID()
-// getByQuery()
+// getByID("id")
+// getByQuery("query")
 // post()
-// patch()
-deleteData()
+// patch("id")
+// deleteData("id")
